@@ -44,7 +44,6 @@ export const TitleBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
 `;
 
 export const Title = styled.h1`
@@ -99,22 +98,21 @@ export const StartBtn = styled.button`
   font-size: large;
   font-weight: 500;
   border-radius: 20px;
-  border: none; // border를 없애고
+  border: none; 
   cursor: pointer;
   background-color: #526faa;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); // 그림자 추가
-  transition: all 0.3s ease; // 모든 변화에 0.3초의 시간을 주고 ease 함수로 부드럽게 만들기
-
-  // hover 효과 추가
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s ease;
+  // hover
   &:hover {
-    background-color: #405a80; // 배경색 변경
-    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3); // 그림자 크기 조절
+    background-color: #405a80;
+    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3); 
   }
 
-  // 클릭 효과 추가
+  // 클릭 효과
   &:active {
     background-color: #405a80;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3); // 그림자 크기를 줄임
-    transform: translateY(4px); // y축으로 약간 이동해서 눌림 효과를 줌
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    transform: translateY(4px);
   }
 `;
