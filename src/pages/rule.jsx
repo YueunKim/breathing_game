@@ -24,7 +24,7 @@ const Rule = () => {
       <Container>
         <TitleBox>
           <Oxygen src={oxygen} alt="oxygen"></Oxygen>
-          <Title>Breating Game</Title>
+          <Title>Oxygen Rush</Title>
           <Oxygen src={oxygen} alt="oxygen"></Oxygen>
         </TitleBox>
         <RuleBox>
