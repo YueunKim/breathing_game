@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, keyframes } from "styled-components";
+import styled, { createGlobalStyle, keyframes, css } from "styled-components";
 import back from '../assets/images/back.png'
 
 export const GlobalStyles = createGlobalStyle`
@@ -14,6 +14,26 @@ export const GlobalStyles = createGlobalStyle`
   }
 `;
 
+export const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+export const Border = styled.div`
+  margin: 0;
+  position: fixed;
+  color: gray;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  border: 20px solid;
+`;
+
 export const Container = styled.div`
   background-color: white;
   display: flex;
@@ -26,18 +46,38 @@ export const Container = styled.div`
   background-position: center;
   background-size: contain;
   border: 10px solid;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: gray;
 `;
 
 export const People = styled.div.attrs((props) => ({
   style: {
-    left: `${props.$position * 10}%`,
+    left: `${props.$position}%`,
+    animationDelay: `${props.$animationDelay}s`,
   },
 }))`
   display: flex;
   flex-direction: column;
   position: fixed;
+  z-index: 3;
   bottom: 0;
-  animation: ${({ position }) => move(position)} 5s linear forwards;
+  opacity: 0;
+
+  ${({ $isBackground }) =>
+    $isBackground &&
+    css`
+      opacity: 1;
+    `}
+
+  ${({ $isBackground, $position }) =>
+    !$isBackground &&
+    css`
+      animation: ${fadeIn} 1s forwards, ${move($position)} 5s linear forwards;
+    `}
 `;
 
 export const PeopleBody = styled.img`
@@ -58,6 +98,7 @@ export const PeopleHead = styled.img.attrs((props) => ({
 export const Status = styled.div`
   position: relative;
   top: -50px;
+  width: 80%;
   display: flex;
   align-items: center;
 `;
@@ -67,9 +108,8 @@ export const StatusBar = styled.div.attrs((props) => ({
     width: `${props.$oxygenLevel}%`
   }
 }))`
-  height: 40px;
-  width: 100%;
-  border-radius: 20px;
+  height: 25px;
+  border-radius: 10px;
   background-color: skyblue;
   transition: width 1s ease;
 `;
@@ -86,6 +126,15 @@ export const StatusOxygen = styled.img.attrs((props) => ({
   transition: right 1s ease;
 `;
 
+
+export const Score = styled.div`
+  position: fixed;
+  top: 3%;
+  right: 5%;
+  font-size: 2rem;
+  font-weight: 800;
+  z-index: 6;
+`;
 
 // 동적으로 keyframes 생성
 export const move = (position) => keyframes`
@@ -111,11 +160,3 @@ export const move = (position) => keyframes`
   }
 `;
 
-export const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
