@@ -92,8 +92,8 @@ $ npm start
 - 게임 종료나 산소 레벨에 따라 다르게 렌더링하는 방법을 배울 수 있습니다.
 - 컴포넌트 재사용성에 대해 고민하며 $position, $isBackground 등의 사용자 정의 CSS 프로퍼티를 사용했습니다.
 
+<br>
 
-![footer](https://capsule-render.vercel.app/api?section=footer&type=waving&color=0:FFFFFF,100:2C62EA)
 
 
 ## 💡 저작권
@@ -101,3 +101,5 @@ $ npm start
 - 사람 캐릭터 출처 : https://blush.design/collections/open-peeps/open-peeps
 - 위의 사이트에서 캐릭터를 생성하고 포토샵으로 목적에 맞게 커스터마이징하였습니다.
 - 지하철 배경 이미지는 무료 저작권 사이트에서 다운받은 이미지입니다.
+
+![footer](https://capsule-render.vercel.app/api?section=footer&type=waving&color=0:FFFFFF,100:2C62EA)
