@@ -95,3 +95,9 @@ $ npm start
 
 ![footer](https://capsule-render.vercel.app/api?section=footer&type=waving&color=0:FFFFFF,100:2C62EA)
 
+
+## 💡 저작권
+
+- 사람 캐릭터 출처 : https://blush.design/collections/open-peeps/open-peeps
+- 위의 사이트에서 캐릭터를 생성하고 포토샵으로 목적에 맞게 커스터마이징하였습니다.
+- 지하철 배경 이미지는 무료 저작권 사이트에서 다운받은 이미지입니다.
