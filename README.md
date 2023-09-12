@@ -57,7 +57,7 @@ For building and running the application you need:
 
 ``` bash
 $ git clone https://github.com/YueunKim/breathing_game.git
-$ cd 1-16-careMango
+$ cd breathing_game
 $ npm i
 $ npm start
 ```
