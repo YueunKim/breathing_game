@@ -29,7 +29,7 @@ export const GameOverTitleBox = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 2%.5;
+  font-size: 2.5rem;
 `;
 
 export const RestartBtn = styled.button`
@@ -55,4 +55,11 @@ export const RestartBtn = styled.button`
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     transform: translateY(4px);
   }
+`;
+
+export const ScoreText = styled.p`
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
 `;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Border,
   Score,
@@ -17,7 +16,6 @@ const Main = () => {
   const backgroundPositions = [8, 28, 50, 68, 80];
   const [zeroOxygenCount, setZeroOxygenCount] = useState(0);
   const [score, setScore] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const shuffledPeople = shuffleArray([...peopleData]);
@@ -125,7 +123,7 @@ const Main = () => {
   const handleRestart = () => {
     window.location.reload();
   };
-  
+
   return (
     <>
       <Score>Score : {score}</Score>
@@ -156,7 +154,7 @@ const Main = () => {
           </PeopleAvatar>
         ))}
       </Container>
-      {zeroOxygenCount >= 3 && <GameOver handleRestart={handleRestart} />}
+      {zeroOxygenCount >= 3 && <GameOver handleRestart={handleRestart} score={score}/>}
       <Border></Border>
     </>
   );
