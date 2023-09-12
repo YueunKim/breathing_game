@@ -65,19 +65,15 @@ export const People = styled.div.attrs((props) => ({
   position: fixed;
   z-index: 3;
   bottom: 0;
-  opacity: 0;
 
-  ${({ $isBackground }) =>
-    $isBackground &&
-    css`
-      opacity: 1;
-    `}
+  opacity: ${({ $isBackground }) => ($isBackground ? 1 : 0)};
 
-  ${({ $isBackground, $position }) =>
-    !$isBackground &&
-    css`
-      animation: ${fadeIn} 1s forwards, ${move($position)} 5s linear forwards;
-    `}
+  animation: ${({ $isBackground, $position }) =>
+    $isBackground
+      ? "none"
+      : css`
+          ${fadeIn} 1s forwards, ${move($position)} 5s linear forwards
+        `};
 `;
 
 export const PeopleBody = styled.img`
@@ -136,7 +132,6 @@ export const Score = styled.div`
   z-index: 6;
 `;
 
-// 동적으로 keyframes 생성
 export const move = (position) => keyframes`
   0% {
     left: 0%;

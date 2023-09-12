@@ -20,10 +20,10 @@ export const BackImg = styled.div`
   background-position: center;
   background-size: contain;
   opacity: 0.5;
-  z-index: 0; // 변경
-  height: 100vh; // 추가
-  width: 100vw; // 추가
-  position: absolute; // 추가
+  z-index: 0; 
+  height: 100vh; 
+  width: 100vw; 
+  position: absolute; 
 `;
 
 export const Container = styled.div`
