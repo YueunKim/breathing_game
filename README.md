@@ -5,13 +5,13 @@
 </div>  
 <br>
 
-## 📝 프로젝트 배경
+## 📝 프로젝트 개요
 - 프로젝트명 : Oxygen Rush
+- 프로젝트 설명 : 산소 게이지가 줄어들고 있는 사람들을 빠르게 클릭해야 하는 게임입니다.
 - 개발 기간 : 2023.08.28 ~ 2023.09.12
 - 개발 인원 : 1명
-- URL : https://breathing-game-git-main-yueunkim.vercel.app/
-- '일단 오늘은 나한테 잘합시다'라는 책에서 게임으로 만들어보면 재밌겠다 싶은 그림이 있었습니다.
-   이를 실행에 옮겨 토이 프로젝트로 만든 미니 게임 입니다.
+- 개발 배경 : '일단 오늘은 나한테 잘합시다'라는 책에서 게임으로 만들어보면 재밌겠다 싶은 그림이 있었습니다.
+   이를 실행에 옮겨 토이 프로젝트로 구현했습니다.
   <details>
     <summary>아이디어 얻은 부분</summary>
     <div markdown="1">
@@ -20,8 +20,34 @@
     
     </div>
     </details>
+- URL : https://breathing-game-git-main-yueunkim.vercel.app/
 <br/>
 
+## 📁 파일 구조
+
+```bash
+📦 breathing_game
+├─ public
+└─ src
+   ├─ App.js
+   ├─ index.js
+   ├─ assets
+   │  └─ images
+   ├─ components
+   │  ├─ GameOver.jsx
+   │  ├─ OxygenStatus.jsx
+   │  └─ PeopleAvatar.jsx
+   ├─ pages
+   │  ├─ main.jsx
+   │  └─ rule.jsx
+   ├─ styles
+   │  ├─ gameOver.styles.js
+   │  ├─ main.styles.js
+   │  └─ rule.styles.js
+   └─ utils
+      └─ peopleData.js
+```
+<br/>
 
 ## 🛠 기술 스택
 
