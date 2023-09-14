@@ -1,63 +1,73 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Border,
   Score,
   Container,
-} from "../styles/main.styles";
-import PeopleAvatar from "../components/PeopleAvatar";
-import OxygenStatus from "../components/OxygenStatus";
-import GameOver from "../components/GameOver";
-import peopleData, { shuffleArray } from "../utils/peopleData";
+} from '../styles/main.styles';
+import PeopleAvatar from '../components/PeopleAvatar';
+import OxygenStatus from '../components/OxygenStatus';
+import GameOver from '../components/GameOver';
+import peopleData, { shuffleArray } from '../utils/peopleData';
 
 const Main = () => {
+  // 게임에 사용될 상태값들을 정의합니다.
   const [backgroundPeople, setBackgroundPeople] = useState([]);
   const [randomFivePeople, setRandomFivePeople] = useState([]);
   const [positions, setPositions] = useState([]);
-  const backgroundPositions = [8, 28, 50, 68, 80];
+  const [peopleState, setPeopleState] = useState([]);
   const [zeroOxygenCount, setZeroOxygenCount] = useState(0);
   const [score, setScore] = useState(0);
+  const backgroundPositions = [8, 28, 50, 68, 80];
 
+  // 게임 초기화
   useEffect(() => {
-    const shuffledPeople = shuffleArray([...peopleData]);
-    setBackgroundPeople(shuffledPeople.slice(0, 5));
-    setRandomFivePeople(shuffledPeople.slice(5));
-    selectRandomPositions();
+    initializeGame();
   }, []);
 
-
-  const handleBodyClick = (index) => {
-    if (peopleState[index].oxygenLevel > 0) {
-      setScore((prevScore) => prevScore + 10);
-      toggleBottomValue(index);
-    } else {
-      return;
-    }
-  };
-
-  // 랜덤 5명 불러오기
-  const [peopleState, setPeopleState] = useState(
-    Array.from({ length: 5 }, () => ({
+  const initializeGame = () => {
+    // 사람을 무작위로 섞은 후 배경 사람과 등장 사람들로 5명씩 분배
+    const shuffledPeople = shuffleArray([...peopleData]);
+    setBackgroundPeople(shuffledPeople.slice(0, 5));
+    setRandomFivePeople(shuffledPeople.slice(5, 10));
+    
+    // 랜덤 위치 설정
+    selectRandomPositions();
+    
+    // 랜덤 5명의 산소 레벨과 위치 초기화
+    const initialPeopleState = Array.from({ length: 5 }, () => ({
       bottomValue: 0,
       oxygenLevel: 100,
       showOxygen: false,
-    }))
-  );
+    }));
+    setPeopleState(initialPeopleState);
+  };
 
   const selectRandomPositions = () => {
     const availablePositions = [0, 20, 40, 60, 77];
     const selectedPositions = [];
+
+    // 5개의 랜덤 위치 선택
     while (selectedPositions.length < 5) {
       const randomIndex = Math.floor(Math.random() * availablePositions.length);
       selectedPositions.push(availablePositions[randomIndex]);
-      availablePositions.splice(randomIndex, 1); // 선택한 위치 제거
+      availablePositions.splice(randomIndex, 1);
     }
+
     setPositions(selectedPositions);
   };
 
-  // 사람 등장 5초 후 산소게이지 보이기
+  // 사람을 클릭했을 때
+  const handleBodyClick = (index) => {
+    if (peopleState[index].oxygenLevel > 0) {
+      setScore(prevScore => prevScore + 10);
+      toggleBottomValue(index);
+    }
+  };
+
+  // 산소 게이지 5초 후 보임
   const handleAnimationEnd = (index) => {
     setTimeout(() => {
-      setPeopleState((prevState) => {
+      setPeopleState(prevState => {
         const newState = [...prevState];
         newState[index].showOxygen = true;
         return newState;
@@ -65,9 +75,9 @@ const Main = () => {
     }, 5000);
   };
 
-  // 사람 클릭시
+  // 클릭한 사람의 목 길이와 산소 레벨 변경
   const toggleBottomValue = (index) => {
-    setPeopleState((prevState) => {
+    setPeopleState(prevState => {
       const newState = [...prevState];
       newState[index] = {
         bottomValue: 200,
@@ -78,7 +88,7 @@ const Main = () => {
     });
 
     setTimeout(() => {
-      setPeopleState((prevState) => {
+      setPeopleState(prevState => {
         const newState = [...prevState];
         newState[index] = {
           bottomValue: 0,
@@ -90,20 +100,16 @@ const Main = () => {
     }, 3000);
   };
 
-
+  // 산소 레벨 감소
   useEffect(() => {
     const timerForOxygenLevel = setInterval(() => {
-      setPeopleState((prevState) => {
+      setPeopleState(prevState => {
         return prevState.map((state, index) => {
           if (state.oxygenLevel > 0 && state.showOxygen) {
             const newOxygenLevel = Math.max(state.oxygenLevel - 20, 0);
-
-            // 산소 레벨이 0이 되면 zeroOxygenCount 증가
             if (newOxygenLevel === 0) {
-              setZeroOxygenCount((prevCount) => prevCount + 1);
-              console.log(zeroOxygenCount);
+              setZeroOxygenCount(prevCount => prevCount + 1);
             }
-
             return {
               ...state,
               oxygenLevel: newOxygenLevel,
@@ -117,9 +123,9 @@ const Main = () => {
     return () => {
       clearInterval(timerForOxygenLevel);
     };
-  }, [zeroOxygenCount]);
+  }, [peopleState]);
 
-  // restart 버튼 클릭시
+  // 재시작
   const handleRestart = () => {
     window.location.reload();
   };
@@ -136,7 +142,6 @@ const Main = () => {
             $isBackground={true}
           />
         ))}
-
         {randomFivePeople.map((person, index) => (
           <PeopleAvatar
             key={index}
@@ -147,10 +152,9 @@ const Main = () => {
             bottomValue={peopleState[index].bottomValue}
             handleBodyClick={() => handleBodyClick(index)}
           >
-            {peopleState[index].showOxygen &&
-              peopleState[index].oxygenLevel > 0 && (
-                <OxygenStatus oxygenLevel={peopleState[index].oxygenLevel} />
-              )}
+            {peopleState[index].showOxygen && peopleState[index].oxygenLevel > 0 && (
+              <OxygenStatus oxygenLevel={peopleState[index].oxygenLevel} />
+            )}
           </PeopleAvatar>
         ))}
       </Container>
