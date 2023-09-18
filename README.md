@@ -1,7 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=0:2C62EA,100:FFFFFF)
 
 <div align="center">
-<img width="293" alt="Untitled" src="https://github.com/YueunKim/breathing_game/assets/65431814/c37a76c2-4f0d-40f7-aba3-aeb6171b93a4" width="500" height="50" > 
+<img alt="Untitled" src="https://github.com/YueunKim/breathing_game/assets/65431814/c37a76c2-4f0d-40f7-aba3-aeb6171b93a4" width="600" height="100" > 
 </div>  
 <br>
 
