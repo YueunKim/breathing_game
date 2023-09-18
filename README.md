@@ -1,7 +1,9 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:2C62EA,100:FFFFFF)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:2C62EA,100:2C62EA)
 
 <div align="center">
-<img alt="Untitled" src="https://github.com/YueunKim/breathing_game/assets/65431814/c37a76c2-4f0d-40f7-aba3-aeb6171b93a4" width="600" height="100" > 
+   <img alt="Untitled" src="https://github.com/YueunKim/breathing_game/assets/65431814/c37a76c2-4f0d-40f7-aba3-aeb6171b93a4" width="600" height="100" >  
+   <br>
+   <img alt=" " src="https://github.com/YueunKim/breathing_game/assets/65431814/eca29f3d-6e0e-412a-b8fa-ab1da8002430" > 
 </div>  
 <br>
 
@@ -128,4 +130,4 @@ $ npm start
 - 위의 사이트에서 캐릭터를 생성하고 포토샵으로 목적에 맞게 커스터마이징하였습니다.
 - 지하철 배경 이미지는 무료 저작권 사이트에서 다운받은 이미지입니다.
 
-![footer](https://capsule-render.vercel.app/api?section=footer&type=waving&color=0:FFFFFF,100:2C62EA)
+![footer](https://capsule-render.vercel.app/api?section=footer&type=waving&color=0:2C62EA,100:2C62EA)
