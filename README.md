@@ -12,16 +12,8 @@
 - 프로젝트 설명 : 산소 게이지가 줄어들고 있는 사람들을 빠르게 클릭해야 하는 게임입니다.
 - 개발 기간 : 2023.08.28 ~ 2023.09.12
 - 개발 인원 : 1명
-- 개발 배경 : '일단 오늘은 나한테 잘합시다'라는 책에서 게임으로 만들어보면 재밌겠다 싶은 그림이 있었습니다.
-   이를 실행에 옮겨 토이 프로젝트로 구현했습니다.
-  <details>
-    <summary>아이디어 얻은 부분</summary>
-    <div markdown="1">
-    
-    <img src="https://github.com/YueunKim/breathing_game/assets/65431814/d190934d-33b9-4ec8-aae1-4d70e32b85fb" width="400" height="580" />
-    
-    </div>
-    </details>
+- 개발 배경 : 사람이 많은 지하철을 탈 때마다 목이 길어져 숨을 제대로 쉴 수 있었으면 좋겠다는 생각이 들었습니다. 이를 바탕으로 시작한 토이 프로젝트입니다.
+
 - URL : https://breathing-game-git-main-yueunkim.vercel.app/
 <br/>
 
